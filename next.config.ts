@@ -5,8 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // If you are deploying to username.github.io/portfolio, uncomment the basePath below:
-  // basePath: "/portfolio", 
+  basePath: "/portfolio",
 };
 
 export default nextConfig;

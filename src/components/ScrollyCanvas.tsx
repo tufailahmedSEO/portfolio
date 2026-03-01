@@ -24,7 +24,7 @@ export default function ScrollyCanvas({ children }: { children?: React.ReactNode
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
       const frameNum = i.toString().padStart(3, "0");
-      img.src = `/sequence/frame_${frameNum}_delay-0.05s.png`;
+      img.src = `/portfolio/sequence/frame_${frameNum}_delay-0.05s.png`;
       img.onload = () => {
         loadedCount++;
         setLoadingProgress(Math.round((loadedCount / FRAME_COUNT) * 100));
@@ -85,10 +85,10 @@ export default function ScrollyCanvas({ children }: { children?: React.ReactNode
         const dpr = window.devicePixelRatio || 1;
         canvasRef.current.width = window.innerWidth * dpr;
         canvasRef.current.height = window.innerHeight * dpr;
-        
+
         const ctx = canvasRef.current.getContext('2d');
         if (ctx) ctx.scale(dpr, dpr);
-        
+
         // Logical CSS size (for object-fit to behave correctly via styling instead of JS)
         // But since we are rendering to full canvas, we set logical width/height to CSS 100%:
         canvasRef.current.style.width = `${window.innerWidth}px`;
@@ -128,7 +128,7 @@ export default function ScrollyCanvas({ children }: { children?: React.ReactNode
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#121212] z-50 text-white space-y-4">
             <h1 className="text-2xl font-light tracking-wide">Loading Experience</h1>
             <div className="w-48 h-1 bg-neutral-800 rounded-full overflow-hidden">
-               <div className="h-full bg-white transition-all duration-300 ease-out" style={{ width: `${loadingProgress}%` }} />
+              <div className="h-full bg-white transition-all duration-300 ease-out" style={{ width: `${loadingProgress}%` }} />
             </div>
             <p className="text-xs text-neutral-400 font-mono">{loadingProgress}%</p>
           </div>
